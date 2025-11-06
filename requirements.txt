@@ -1,0 +1,16 @@
+# ---- Base ----
+django
+djangorestframework
+fastapi
+uvicorn[standard]
+
+# ---- DB ----
+psycopg2-binary # PostgreSQL Driver
+
+# ---- AI Stack ----
+langchain
+ollama
+
+# ---- Input Processing ----
+docling
+langchain-docling

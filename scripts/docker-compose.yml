@@ -1,38 +1,43 @@
-version: '3.9'
-
 services:
   ghostforge-db:
-    image: ubuntu:24.04
+    image: postgres:16-alpine
     container_name: ghostforge-db
+    environment:
+      POSTGRES_USER: ghostforge_user
+      POSTGRES_PASSWORD: supersecretdbpw # TODO: Put this in a .env
+      POSTGRES_DB: ghostforge_db
+    volumes:
+      - ghostforge-data:/var/lib/postgresql/data
     networks:
-      ghostforge-net:
-        ipv4_address: 10.100.100.10
-    command: sleep infinity
+      - ghostforge-net
     restart: unless-stopped
 
   ghostforge-llm:
-    image: ubuntu:24.04
+    image: ollama/ollama
     container_name: ghostforge-llm
+    volumes:
+      - ghostforge-ollama:/root/.ollama
     networks:
-      ghostforge-net:
-        ipv4_address: 10.100.100.11
-    command: sleep infinity
+      - ghostforge-net
     restart: unless-stopped
 
   ghostforge-app:
-    image: ubuntu:24.04
+    build: ..
     container_name: ghostforge-app
-    networks:
-      ghostforge-net:
-        ipv4_address: 10.100.100.12
     ports:
       - "8000:8000"
-    command: sleep infinity
+    networks:
+      - ghostforge-net
+    # Assures startup order
+    depends_on:
+      - ghostforge-db
+      - ghostforge-llm
     restart: unless-stopped
 
 networks:
   ghostforge-net:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 10.100.100.0/24
+
+volumes:
+  ghostforge-data:
+  ghostforge-ollama:
