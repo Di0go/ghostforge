@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  ghostforge-db:
+    image: ubuntu:24.04
+    container_name: ghostforge-db
+    networks:
+      ghostforge-net:
+        ipv4_address: 10.100.100.10
+    command: sleep infinity
+    restart: unless-stopped
+
+  ghostforge-llm:
+    image: ubuntu:24.04
+    container_name: ghostforge-llm
+    networks:
+      ghostforge-net:
+        ipv4_address: 10.100.100.11
+    command: sleep infinity
+    restart: unless-stopped
+
+  ghostforge-app:
+    image: ubuntu:24.04
+    container_name: ghostforge-app
+    networks:
+      ghostforge-net:
+        ipv4_address: 10.100.100.12
+    ports:
+      - "8000:8000"
+    command: sleep infinity
+    restart: unless-stopped
+
+networks:
+  ghostforge-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.100.100.0/24
