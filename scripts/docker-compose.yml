@@ -2,10 +2,8 @@ services:
   ghostforge-db:
     image: postgres:16-alpine
     container_name: ghostforge-db
-    environment:
-      POSTGRES_USER: ghostforge_user
-      POSTGRES_PASSWORD: supersecretdbpw # TODO: Put this in a .env
-      POSTGRES_DB: ghostforge_db
+    env_file:
+      - ../.env
     volumes:
       - ghostforge-data:/var/lib/postgresql/data
     networks:
@@ -24,8 +22,12 @@ services:
   ghostforge-app:
     build: ..
     container_name: ghostforge-app
+    env_file:
+      - ../.env
     ports:
       - "8000:8000"
+    volumes:
+      - ../src:/app
     networks:
       - ghostforge-net
     # Assures startup order

@@ -1,1 +1,4 @@
 *.pdf
+.env
+*.pyc
+__pycache__/

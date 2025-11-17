@@ -9,6 +9,8 @@ psycopg2-binary # PostgreSQL Driver
 
 # ---- AI Stack ----
 langchain
+langchain-community
+langchain-core
 ollama
 
 # ---- Input Processing ----
