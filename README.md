@@ -7,8 +7,10 @@
 ## Features
 
 * **Attack Lab:** Generates realistic phishing emails, SMS, and pretexting scenarios to test security awareness.
+
 ![GhostForge Attack Lab](docs/ghostforge-attack.png)
 * **Defense Center:** Analyzes PDF documents to detect urgency, suspicious links, and malicious intent, providing a risk score (0-100).
+
 ![GhostForge Defense Center](docs/ghostforge_defense.png)
 * **100% Local:** Uses **Ollama** and Docker. No data leaves your computer.
 
@@ -67,9 +69,9 @@ Ghostforge allows you to switch between different AI models. This is managed via
 
 ### 1. PDF Processing: PyPDF vs. Docling
 Currently, the project uses **`pypdf`** for extracting text from documents.
-* **Current Status:** We use `pypdf` because it is extremely lightweight and fast for CPU execution.
+* **Current Status:** The project uses `pypdf` because it is extremely lightweight and fast for CPU execution.
 * **Future Goal:** Migrate to **Docling** (as it was planned since the beginning and suggested by the teacher).
-* **Why not now?** Docling requires heavy machine learning libraries (PyTorch) and significant hardware resources (GPU). On standard CPUs, this immense bottleneck when analyzing documents.
+* **Why not now?** Docling requires heavy machine learning libraries (PyTorch) and significant hardware resources (GPU). On standard CPUs, this causes immense bottleneck when analyzing documents.
 
 ### 2. SET (Social Engineering Toolkit) integration
 * Future plans include the integration of the social engineering tookit in order to automatize attacks.
