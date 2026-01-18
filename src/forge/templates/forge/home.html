@@ -1,0 +1,23 @@
+{% extends 'forge/base.html' %}
+{% block content %}
+<div class="text-center mt-5">
+    <h1>Welcome to Ghostforge</h1>
+    <p class="lead">Social Engineering Detection & Simulation Platform</p>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3>⚔️ Attack Simulation</h3>
+                <p>Generate social engineering scenarios to test defenses.</p>
+                <a href="/attack/" class="btn btn-danger">Launch Attack Lab</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3>🛡️ Defense Analysis</h3>
+                <p>Upload documents to detect phishing and risks.</p>
+                <a href="/defense/" class="btn btn-primary">Open Defense Center</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

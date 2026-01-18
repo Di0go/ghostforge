@@ -1,4 +1,3 @@
-
 # ghostforge/src/forge/models.py
 # 
 # Models for the forge app, they store both attack and defense information
@@ -15,7 +14,6 @@ class AttackScenario(models.Model):
     title = models.CharField(max_length=200, help_text="Attack Title")
     prompt = models.TextField(help_text="User prompt")
     
-    # TODO: Maybe make this JSON???
     target_info = models.TextField(blank=True, null=True, help_text="Target Context (RAG)")
     
     # EN: Result
@@ -41,7 +39,7 @@ class DefenseAnalysis(models.Model):
 
     input_file = models.FileField(upload_to='uploads/', blank=True, null=True, help_text="Document for Analysis")
     file_name = models.CharField(max_length=255, blank=True, null=True)
-    # TODO: docling needs to fill this context
+    # TODO: docling needs to fill this context later
     content_extracted = models.TextField(blank=True, null=True)
     
     # EN: Results

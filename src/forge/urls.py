@@ -1,25 +1,24 @@
 # ghostforge/src/forge/urls.py
 # 
-# URL routing for the Forge app
+# URL routing for the Forge app (API + Frontend)
 # 
 # <diogopinto> 2025+
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import AttackScenarioViewSet, DefenseAnalysisViewSet
+from .views import AttackScenarioViewSet, DefenseAnalysisViewSet, home, attack_view, defense_view
 
-
-
-# -----------------------------------------------------------------
-# EN: Automatically generates URLs for the ViewSets (ex: /attacks/, /attacks/1/)
-# The router handles automatially all the REST routes (GET, POST, PUT/PATCH, DELETE) because of the viewset.
+# EN: API Router
 router = DefaultRouter()
 router.register(r'attacks', AttackScenarioViewSet)
 router.register(r'defense', DefenseAnalysisViewSet)
 
-
-# -----------------------------------------------------------------
-# EN: URL Patterns
 urlpatterns = [
-    path('', include(router.urls)),
+    # EN: Frontend Routes
+    path('', home, name='home'),
+    path('attack/', attack_view, name='attack'),
+    path('defense/', defense_view, name='defense'),
+
+    # EN: API Routes
+    path('api/', include(router.urls)),
 ]

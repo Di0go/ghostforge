@@ -5,7 +5,7 @@ fastapi
 uvicorn[standard]
 
 # ---- DB ----
-psycopg2-binary # PostgreSQL Driver
+psycopg2-binary
 
 # ---- AI Stack ----
 langchain
@@ -14,5 +14,4 @@ langchain-core
 ollama
 
 # ---- Input Processing ----
-docling
-langchain-docling
+pypdf
