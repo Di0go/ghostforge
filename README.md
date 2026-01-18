@@ -7,7 +7,9 @@
 ## Features
 
 * **Attack Lab:** Generates realistic phishing emails, SMS, and pretexting scenarios to test security awareness.
+![GhostForge Attack Lab](docs/ghostforge-attack.png)
 * **Defense Center:** Analyzes PDF documents to detect urgency, suspicious links, and malicious intent, providing a risk score (0-100).
+![GhostForge Defense Center](docs/ghostforge_defense.png)
 * **100% Local:** Uses **Ollama** and Docker. No data leaves your computer.
 
 ---
@@ -20,9 +22,16 @@
 ### Installation
 
 1.  **Clone the repository**.
-2.  **Run the installation script**:
+
+2.  **Setup .env**:
+    Setup your .env file using the provided .env.example as an example
     ```bash
-    ./scripts/install.sh
+    mv .env.example .env
+    ```
+
+2.  **Run the installation script in /scripts/**:
+    ```bash
+    ./install.sh
     ```
     *This script will build the containers, set up the database, and automatically download the AI model.*
 
@@ -32,7 +41,7 @@
 4.  **Stop the App**:
     To stop all containers, run:
     ```bash
-    ./scripts/stop.sh
+    ./stop.sh
     ```
 
 ---
@@ -49,7 +58,7 @@ Ghostforge allows you to switch between different AI models. This is managed via
     ```
 3.  **Apply changes** by running the install script again:
     ```bash
-    ./scripts/install.sh
+    ./install.sh
     ```
 
 ---
@@ -67,7 +76,3 @@ Currently, the project uses **`pypdf`** for extracting text from documents.
 
 ### 3. Advanced RAG (Retrieval-Augmented Generation)
 * Improve the "Target Info" context in the Attack Lab to allow uploading company profiles for highly targeted spear-phishing simulations.
-
-![GhostForge Home](docs/ghostforge.png)
-![GhostForge Defense Center](docs/ghostforge_defense.png)
-![GhostForge Attack Lab](docs/ghostforge-attack.png)
