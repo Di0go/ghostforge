@@ -71,7 +71,7 @@ Ghostforge allows you to switch between different AI models. This is managed via
 * Currently, the project uses **`pypdf`** for extracting text from documents since **`docling`** requires heavy machine learning libraries (PyTorch) and significant hardware resources (GPU). On standard CPUs, this causes an immense bottleneck when analyzing documents.
 
 ### 2. SET (Social Engineering Toolkit) integration
-* Future plans include the integration of the social engineering tookit in order to automatize attacks.
+* Future plans include the integration of the social engineering tookit in order to automate attacks.
 
 ### 3. Advanced RAG (Retrieval-Augmented Generation)
 * Improve the "Target Info" context in the Attack Lab to allow uploading company profiles for highly targeted spear-phishing simulations.
