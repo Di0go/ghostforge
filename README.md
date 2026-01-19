@@ -31,7 +31,7 @@
     mv .env.example .env
     ```
 
-2.  **Run the installation script in /scripts/**:
+2.  **Run the installation script in scripts/ directory**:
     ```bash
     ./install.sh
     ```
@@ -68,7 +68,7 @@ Ghostforge allows you to switch between different AI models. This is managed via
 ## Future Improvements & Known Limitations
 
 ### 1. PDF Processing: PyPDF vs. Docling
-Currently, the project uses **`pypdf`** for extracting text from documents since **`docling`** requires heavy machine learning libraries (PyTorch) and significant hardware resources (GPU). On standard CPUs, this causes an immense bottleneck when analyzing documents.
+* Currently, the project uses **`pypdf`** for extracting text from documents since **`docling`** requires heavy machine learning libraries (PyTorch) and significant hardware resources (GPU). On standard CPUs, this causes an immense bottleneck when analyzing documents.
 
 ### 2. SET (Social Engineering Toolkit) integration
 * Future plans include the integration of the social engineering tookit in order to automatize attacks.
